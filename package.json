@@ -1,0 +1,27 @@
+{
+  "name": "hanoi-tower",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "sass --style=compressed sass/main.sass css/main.css",
+    "watch:sass": "sass -w sass/main.sass:css/main.css",
+    "dev": "live-server --port=3000 --no-browser -q",
+    "start": "npm-run-all --parallel watch:sass dev"
+  },
+  "author": "invizex <mvaydev@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/invizex/hanoi-tower.git"
+  },
+  "bugs": {
+    "url": "https://github.com/invizex/hanoi-tower/issues"
+  },
+  "homepage": "https://github.com/invizex/hanoi-tower#readme",
+  "description": "Игра головоломка Ханойская башня",
+  "devDependencies": {
+    "sass": "^1.64.2",
+    "live-server": "^1.2.2",
+    "npm-run-all": "^4.1.5"
+  }
+}
