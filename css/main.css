@@ -2,5 +2,75 @@
   src: url(../fonts/Montserrat.ttf);
   font-family: "Montserrat";
 }
+@font-face {
+  src: url(../fonts/font-awesome.ttf);
+  font-family: "Font Awesome";
+}
+.header {
+  font-family: "Montserrat";
+  color: #F7FFF7;
+  margin: 0;
+  font-weight: 700;
+}
+.header_size_large {
+  font-size: 28px;
+}
+.header_size_medium {
+  font-size: 22px;
+}
+.header_size_small {
+  font-size: 20px;
+}
+
+.paragraph {
+  font-family: "Montserrat";
+  color: #F7FFF7;
+  margin: 0;
+  font-size: 14px;
+}
+.paragraph_weight_regular {
+  font-weight: 400;
+}
+.paragraph_weight_semibold {
+  font-weight: 600;
+}
+
+.icon {
+  font-family: "Font Awesome";
+}
+
+.button {
+  font-family: "Montserrat";
+  color: #F7FFF7;
+  margin: 0;
+  transition: 0.25s;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 12px;
+  border: 0;
+  padding: 12px 24px;
+  box-sizing: border-box;
+}
+.button_type_primary {
+  background: #4E439D;
+}
+.button_type_secondary {
+  background: #E9E8F1;
+  color: #7368B6;
+}
+.button:active {
+  background: #7368B6;
+  color: #F7FFF7;
+}
+@media (hover: hover) {
+  .button:hover {
+    background: #7368B6;
+    color: #F7FFF7;
+  }
+}
+
+body {
+  background: #2B2A37;
+}
 
 /*# sourceMappingURL=main.css.map */
