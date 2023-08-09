@@ -1,3 +1,33 @@
+.button {
+  font-family: "Montserrat";
+  color: #F7FFF7;
+  margin: 0;
+  transition: 0.25s;
+  font-weight: 600;
+  font-size: 14px;
+  border-radius: 12px;
+  border: 0;
+  padding: 12px 24px;
+  box-sizing: border-box;
+}
+.button_type_primary {
+  background: #4E439D;
+}
+.button_type_secondary {
+  background: #E9E8F1;
+  color: #7368B6;
+}
+.button:active {
+  background: #7368B6;
+  color: #F7FFF7;
+}
+@media (hover: hover) {
+  .button:hover {
+    background: #7368B6;
+    color: #F7FFF7;
+  }
+}
+
 @font-face {
   src: url(../fonts/Montserrat.ttf);
   font-family: "Montserrat";
@@ -37,36 +67,7 @@
 
 .icon {
   font-family: "Font Awesome";
-}
-
-.button {
-  font-family: "Montserrat";
-  color: #F7FFF7;
-  margin: 0;
-  transition: 0.25s;
-  font-weight: 600;
-  font-size: 14px;
-  border-radius: 12px;
-  border: 0;
-  padding: 12px 24px;
-  box-sizing: border-box;
-}
-.button_type_primary {
-  background: #4E439D;
-}
-.button_type_secondary {
-  background: #E9E8F1;
-  color: #7368B6;
-}
-.button:active {
-  background: #7368B6;
-  color: #F7FFF7;
-}
-@media (hover: hover) {
-  .button:hover {
-    background: #7368B6;
-    color: #F7FFF7;
-  }
+  font-size: 20px;
 }
 
 body {
