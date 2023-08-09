@@ -1,0 +1,10 @@
+@mixin default-font()
+    font-family: 'Montserrat'
+    color: $white
+    margin: 0
+
+@mixin font-modifier($modifier, $map)
+    @each $item__name, $item in $map
+        &_#{$modifier}_#{$item__name}
+            font-#{$modifier}: $item
+    

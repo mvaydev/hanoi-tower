@@ -1,3 +1,22 @@
 @font-face 
     src: url(../fonts/Montserrat.ttf)
     font-family: 'Montserrat'
+
+@font-face 
+    src: url(../fonts/font-awesome.ttf)
+    font-family: 'Font Awesome'
+         
+.header
+    @include default-font()
+    @include font-modifier('size', $font-sizes)
+
+    font-weight: 700
+
+.paragraph
+    @include default-font()
+    @include font-modifier('weight', $font-weights)
+
+    font-size: 14px
+         
+.icon
+    font-family: 'Font Awesome'
