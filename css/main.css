@@ -85,6 +85,30 @@
   z-index: -1;
 }
 
+.body {
+  background: #2B2A37;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 48px;
+}
+.wrapper__menu {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 24px;
+}
+
 @font-face {
   src: url(../fonts/Montserrat.ttf);
   font-family: "Montserrat";
@@ -98,6 +122,9 @@
   color: #F7FFF7;
   margin: 0;
   font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  column-gap: 6px;
 }
 .header_size_large {
   font-size: 28px;
@@ -125,16 +152,6 @@
 .icon {
   font-family: "Font Awesome";
   font-size: 20px;
-}
-
-body {
-  background: #2B2A37;
-  width: 100%;
-  height: 100vh;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 /*# sourceMappingURL=main.css.map */

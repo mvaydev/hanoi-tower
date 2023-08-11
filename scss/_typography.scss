@@ -24,6 +24,10 @@ $font-weights: (
     @include font-modifier('size', $font-sizes);
 
     font-weight: 700;
+
+    display: inline-flex;
+    align-items: center;
+    column-gap: $step-small;
 }
 
 .paragraph {

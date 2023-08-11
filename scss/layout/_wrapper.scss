@@ -1,0 +1,28 @@
+.body {
+    background: $grey-100;
+
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+
+.wrapper {
+    width: fit-content;
+    height: fit-content;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    row-gap: $step-large * 2;
+
+    &__menu {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: $step-large;
+    }
+}
