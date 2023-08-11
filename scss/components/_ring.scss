@@ -14,6 +14,7 @@ $ring-colors: (
     height: $step-large * 2;
 
     $percentage: 20%;
+    z-index: $rings-z-index;
 
     @for $i from 1 through 7 {
         &_size_#{$i} {

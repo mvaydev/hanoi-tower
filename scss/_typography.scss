@@ -1,12 +1,7 @@
 @font-face {
     src: url(../fonts/Montserrat.ttf);
     font-family: 'Montserrat';
-}
-
-@font-face {
-    src: url(../fonts/font-awesome.ttf);
-    font-family: 'Font Awesome';
-}    
+}  
 
 $font-sizes: (
     'large': 28px, 
@@ -14,14 +9,10 @@ $font-sizes: (
     'small': 20px
 );
 
-$font-weights: (
-    'regular': 400, 
-    'semibold': 600
-);
-
 .header {
     @include default-font();
     @include font-modifier('size', $font-sizes);
+    @include color-purple-modifier();
 
     font-weight: 700;
 
@@ -32,14 +23,11 @@ $font-weights: (
 
 .paragraph {
     @include default-font();
-    @include font-modifier('weight', $font-weights);
+    @include color-purple-modifier();
 
     font-size: 14px;
-}
 
-.icon {
-    font: {
-        family: 'Font Awesome';
-        size: 20px;
+    &_weight_semibold {
+        font-weight: 600;
     }
-}   
+}

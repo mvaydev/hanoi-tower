@@ -15,3 +15,9 @@
         }
     }
 }
+
+@mixin color-purple-modifier() {
+    &_color_purple {
+        color: $purple-80;
+    }
+}

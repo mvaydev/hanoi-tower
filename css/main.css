@@ -17,6 +17,9 @@
   background: #E9E8F1;
   color: #7368B6;
 }
+.button_width_container {
+  width: 100%;
+}
 .button:active {
   background: #7368B6;
   color: #F7FFF7;
@@ -30,6 +33,7 @@
 
 .ring {
   height: 48px;
+  z-index: 1;
 }
 .ring_size_1 {
   width: 30%;
@@ -60,6 +64,33 @@
   background: #573280;
 }
 
+@font-face {
+  src: url(../fonts/font-awesome.ttf);
+  font-family: "Font Awesome";
+}
+.icon {
+  transition: 0.25s;
+  background: none;
+  border: 0;
+  padding: 0;
+  font-family: "Font Awesome" !important;
+  font-size: 20px !important;
+}
+.icon_color_purple {
+  color: #7368B6;
+}
+@media (hover: hover) {
+  .icon:hover {
+    color: #b7afe0;
+  }
+}
+
+.number-input {
+  display: flex;
+  align-items: center;
+  column-gap: 6px;
+}
+
 .game {
   width: 1024px;
   display: flex;
@@ -82,7 +113,6 @@
   display: block;
   background: #383744;
   position: absolute;
-  z-index: -1;
 }
 
 .body {
@@ -109,13 +139,42 @@
   column-gap: 24px;
 }
 
+.modal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  padding: 24px 48px;
+  border-radius: 24px;
+  background: #383744;
+  z-index: 3;
+}
+.modal__title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 6px;
+}
+.modal__row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 24px;
+}
+.modal__dark-background {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.5);
+}
+
 @font-face {
   src: url(../fonts/Montserrat.ttf);
   font-family: "Montserrat";
-}
-@font-face {
-  src: url(../fonts/font-awesome.ttf);
-  font-family: "Font Awesome";
 }
 .header {
   font-family: "Montserrat";
@@ -135,6 +194,9 @@
 .header_size_small {
   font-size: 20px;
 }
+.header_color_purple {
+  color: #7368B6;
+}
 
 .paragraph {
   font-family: "Montserrat";
@@ -142,16 +204,11 @@
   margin: 0;
   font-size: 14px;
 }
-.paragraph_weight_regular {
-  font-weight: 400;
+.paragraph_color_purple {
+  color: #7368B6;
 }
 .paragraph_weight_semibold {
   font-weight: 600;
-}
-
-.icon {
-  font-family: "Font Awesome";
-  font-size: 20px;
 }
 
 /*# sourceMappingURL=main.css.map */

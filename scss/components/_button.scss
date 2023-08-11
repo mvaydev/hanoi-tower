@@ -5,13 +5,13 @@
 
 .button {
     @include default-font();
-    @include default-transition()  ;  
+    @include default-transition() ;  
 
     font: {
         weight: 600;
         size: 14px;
     }
-    
+
     border-radius: $step-medium;
     border: 0;
 
@@ -25,6 +25,10 @@
     &_type_secondary {
         background: $purple-40;
         color: $purple-80;
+    }
+
+    &_width_container {
+        width: 100%;
     }
 
     &:active {
