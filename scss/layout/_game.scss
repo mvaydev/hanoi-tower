@@ -1,0 +1,32 @@
+.game {
+    width: 1024px;
+
+    display: flex;
+
+    border-bottom: $step-large solid $grey-80;
+}
+
+.game__rings-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+
+    padding-top: $step-large * 2;
+    width: 100%;
+
+    position: relative;
+
+    &::before {
+        content: '';
+
+        width: $step-large;
+        height: 100%;
+
+        display: block;
+        background: $grey-80;
+
+        position: absolute;
+        z-index: -1;
+    }
+}

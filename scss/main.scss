@@ -2,9 +2,20 @@
 @import './utils/_mixins';
 
 @import './components/_button';
+@import './components/_ring';
+
+@import './layout/_game';
 
 @import './_typography';
 
 body {
     background: $grey-100;
+
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }    

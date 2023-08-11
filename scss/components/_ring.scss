@@ -1,0 +1,24 @@
+@use 'sass:list';
+
+$ring-colors: (
+    #F7FFF7,
+    #FFC914,
+    #D27E3A,
+    #FE6D73,
+    #1A936F,
+    #3F88C5,
+    #573280,
+);
+
+.ring {
+    height: $step-large * 2;
+
+    $percentage: 20%;
+
+    @for $i from 1 through 7 {
+        &_size_#{$i} {
+            width: $percentage + $i * 10;
+            background: list.nth($ring-colors, $i);
+        }
+    }
+}

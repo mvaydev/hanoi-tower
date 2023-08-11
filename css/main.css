@@ -28,6 +28,63 @@
   }
 }
 
+.ring {
+  height: 48px;
+}
+.ring_size_1 {
+  width: 30%;
+  background: #F7FFF7;
+}
+.ring_size_2 {
+  width: 40%;
+  background: #FFC914;
+}
+.ring_size_3 {
+  width: 50%;
+  background: #D27E3A;
+}
+.ring_size_4 {
+  width: 60%;
+  background: #FE6D73;
+}
+.ring_size_5 {
+  width: 70%;
+  background: #1A936F;
+}
+.ring_size_6 {
+  width: 80%;
+  background: #3F88C5;
+}
+.ring_size_7 {
+  width: 90%;
+  background: #573280;
+}
+
+.game {
+  width: 1024px;
+  display: flex;
+  border-bottom: 24px solid #383744;
+}
+
+.game__rings-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 48px;
+  width: 100%;
+  position: relative;
+}
+.game__rings-container::before {
+  content: "";
+  width: 24px;
+  height: 100%;
+  display: block;
+  background: #383744;
+  position: absolute;
+  z-index: -1;
+}
+
 @font-face {
   src: url(../fonts/Montserrat.ttf);
   font-family: "Montserrat";
@@ -72,6 +129,12 @@
 
 body {
   background: #2B2A37;
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /*# sourceMappingURL=main.css.map */
