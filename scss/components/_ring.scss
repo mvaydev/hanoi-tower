@@ -11,10 +11,10 @@ $ring-colors: (
 );
 
 .ring {
-    height: $step-large * 2;
+    height: $step-l * 2;
 
     $percentage: 20%;
-    z-index: $rings-z-index;
+    z-index: $rings-zi;
 
     @for $i from 1 through 7 {
         &_size_#{$i} {

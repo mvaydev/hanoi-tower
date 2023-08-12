@@ -3,19 +3,19 @@
     flex-direction: column;
     align-items: center;
 
-    gap: $step-large;
-    padding: $step-large $step-large * 2; 
+    gap: $step-l;
+    padding: $step-l $step-l * 2; 
 
-    border-radius: $step-large;
+    border-radius: $step-l;
     background: $grey-80;
 
-    z-index: $modal-z-index;
+    z-index: $modal-zi;
 
     &__title {
         display: flex;
         flex-direction: column;
         align-items: center;
-        row-gap: $step-small;
+        row-gap: $step-s;
     }
 
     &__row {
@@ -24,7 +24,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        column-gap: $step-large;
+        column-gap: $step-l;
     }
 
     &__dark-background {
@@ -35,7 +35,7 @@
         left: 0;
         top: 0;
 
-        z-index: $modal-background-z-index;
+        z-index: $modal-background-zi;
 
         background: $transparent-black;
     }

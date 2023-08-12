@@ -5,7 +5,6 @@
 
 .icon {
     @include color-purple-modifier();
-    @include default-transition();
 
     background: none;
     border: 0;
@@ -18,7 +17,7 @@
 
     @media (hover: hover) {
         &:hover {
-            color: $purple-60;
+            color: $primary-text;
         }
     }
 }   

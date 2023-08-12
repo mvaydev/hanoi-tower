@@ -1,11 +1,11 @@
 @mixin default-font(){
     font-family: 'Montserrat';
-    color: $white;
+    color: $primary-text;
     margin: 0;
 }
     
 @mixin default-transition(){
-    transition: .25s;
+    transition: .15s;
 }
 
 @mixin font-modifier($modifier, $map){
@@ -18,6 +18,6 @@
 
 @mixin color-purple-modifier() {
     &_color_purple {
-        color: $purple-80;
+        color: $secondary-text;
     }
 }

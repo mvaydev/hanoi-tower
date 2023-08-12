@@ -1,8 +1,3 @@
-@mixin button-active() {
-    background: $purple-80;
-    color: $white;
-} 
-
 .button {
     @include default-font();
     @include default-transition() ;  
@@ -12,32 +7,35 @@
         size: 14px;
     }
 
-    border-radius: $step-medium;
+    border-radius: $step-m;
     border: 0;
 
-    padding: $step-medium $step-large;
+    padding: $step-m $step-l;
     box-sizing: border-box;
-
-    &_type_primary{
-        background: $purple-100;
-    }
-
-    &_type_secondary {
-        background: $purple-40;
-        color: $purple-80;
-    }
 
     &_width_container {
         width: 100%;
     }
 
-    &:active {
-        @include button-active;
+    &_type_primary{
+        background: $primary;
+
+        @media (hover: hover) {
+            &:hover {
+                background: $purple-100;
+            }
+        }
     }
 
-    @media (hover: hover) {
-        &:hover {
-            @include button-active;
+    &_type_secondary {
+        background: $secondary;
+        color: $secondary-text;
+
+        @media (hover: hover) {
+            &:hover {
+                background: $purple-60;
+                color: $white;
+            }
         }
     }
 }

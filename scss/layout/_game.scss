@@ -3,7 +3,7 @@
 
     display: flex;
 
-    border-bottom: $step-large solid $grey-80;
+    border-bottom: $step-l solid $grey-80;
 }
 
 .game__rings-container {
@@ -12,7 +12,7 @@
     justify-content: flex-end;
     align-items: center;
 
-    padding-top: $step-large * 2;
+    padding-top: $step-l * 2;
     width: 100%;
 
     position: relative;
@@ -20,7 +20,7 @@
     &::before {
         content: '';
 
-        width: $step-large;
+        width: $step-l;
         height: 100%;
 
         display: block;

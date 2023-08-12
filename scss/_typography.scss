@@ -4,9 +4,9 @@
 }  
 
 $font-sizes: (
-    'large': 28px, 
-    'medium': 22px, 
-    'small': 20px
+    'l': 30px, 
+    'm': 24px, 
+    's': 22px
 );
 
 .header {
@@ -18,16 +18,16 @@ $font-sizes: (
 
     display: inline-flex;
     align-items: center;
-    column-gap: $step-small;
+    column-gap: $step-s;
 }
 
 .paragraph {
     @include default-font();
     @include color-purple-modifier();
 
-    font-size: 14px;
+    font-size: 16px;
 
-    &_weight_semibold {
+    &_weight_sb {
         font-weight: 600;
     }
 }
