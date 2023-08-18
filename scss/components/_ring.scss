@@ -12,6 +12,7 @@ $ring-colors: (
 
 .ring {
     height: $step-l * 2;
+    touch-action: none;
 
     $percentage: 20%;
     z-index: $ring-zi;

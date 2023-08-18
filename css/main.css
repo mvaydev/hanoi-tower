@@ -34,6 +34,7 @@
 
 .ring {
   height: 48px;
+  touch-action: none;
   z-index: 1;
 }
 .ring_size_1 {

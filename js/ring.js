@@ -2,14 +2,14 @@ class Ring extends HTMLElement {
     connectedCallback() {
         this.classList.add('ring', 'ring_size_' + this.size)
 
-        this.addEventListener('mousedown', this.handleMouseDown)
+        this.addEventListener('pointerdown', this.handleCatch)
     }
 
     get rect() {
         return this.getBoundingClientRect()
     }
 
-    handleMouseDown(event) {
+    handleCatch(event) {
         event.preventDefault()
 
         if(this.order != 1) return
@@ -20,42 +20,18 @@ class Ring extends HTMLElement {
         this.setDragView()
         this.move(event.pageX - shiftX, event.pageY - shiftY)
 
-        this.boundedHandleDrag = this.handleDrag.bind(this, shiftX, shiftY)
-        this.boundedHandleDrop = this.handleDrop.bind(this)
-
-        document.addEventListener('mousemove', this.boundedHandleDrag)
-        this.addEventListener('mouseup', this.boundedHandleDrop)
+        document.addEventListener('pointermove', e => this.handleDrag(shiftX, shiftY, e))
+        document.body.addEventListener('pointerleave', this.moveBack.bind(this))
+        this.addEventListener('pointerup', this.handleDrop)
     }
 
-    handleDrag(shiftX, shiftY, event) {
-        const limitBottom = document.body.clientHeight - this.clientHeight
-        const limitRight = document.body.clientWidth - this.clientWidth
-        
-        let newX = event.pageX - shiftX
-        let newY = event.pageY - shiftY
-
-        if (newY < 0) newY = 0
-        else if(newY >= limitBottom) newY = limitBottom
-
-        if (newX <= 0) newX = 0
-        else if(newX >= limitRight) newX = limitRight
+    handleDrag(shiftX, shiftY, {pageX, pageY}) {
+        let {newX, newY} = this.getNewCoordinates(pageX - shiftX, pageY - shiftY)
 
         this.move(newX, newY)
     }
     
     handleDrop(event) {
-        document.removeEventListener('mousemove', this.boundedHandleDrag)
-        this.removeEventListener('mouseup', this.boundedHandleDrop)
-
-        if( event.clientX < 0 ||
-            event.clientY < 0 ||
-            event.clientX > document.body.clientWidth ||
-            event.clientY > document.body.clientHeight) {
-            this.moveBack()
-
-            return
-        }
-
         this.hidden = true
         let towerToDrop = document.elementFromPoint(event.clientX, event.clientY)
                                   .closest('.tower')
@@ -70,6 +46,26 @@ class Ring extends HTMLElement {
         }
 
         this.moveBack()
+    }
+
+    getNewCoordinates(x, y) {
+        let limits = {
+            right: document.body.offsetWidth - this.rect.width,
+            bottom: document.body.offsetHeight - this.rect.height,
+            left: document.body.offsetLeft,
+            top: document.body.offsetTop
+        }
+
+        let newX = x
+        let newY = y
+
+        if (y < limits.top) newY = limits.top
+        else if(y >= limits.bottom) newY = limits.bottom
+
+        if (x <= limits.left) newX = limits.left
+        else if(x >= limits.right) newX = limits.right
+
+        return {newX, newY}
     }
 
     moveBack() {
