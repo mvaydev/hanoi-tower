@@ -1,0 +1,23 @@
+.tower {
+    display: flex;
+    flex-direction: column;
+    
+    justify-content: flex-end;
+    align-items: center;
+
+    width: 100%;
+
+    position: relative;
+
+    &::before {
+        content: '';
+
+        width: $step-l;
+        height: 100%;
+
+        display: block;
+        background: $grey-80;
+
+        position: absolute;
+    }
+}

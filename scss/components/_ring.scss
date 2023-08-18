@@ -14,12 +14,17 @@ $ring-colors: (
     height: $step-l * 2;
 
     $percentage: 20%;
-    z-index: $rings-zi;
+    z-index: $ring-zi;
 
     @for $i from 1 through 7 {
         &_size_#{$i} {
             width: $percentage + $i * 10;
             background: list.nth($ring-colors, $i);
         }
+    }
+
+    &_state_dragged {
+        position: absolute;
+        z-index: $ring-dragged-zi;
     }
 }

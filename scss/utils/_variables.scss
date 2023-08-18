@@ -4,9 +4,10 @@ $step-l: $step-m * 2;
 $step-s: $step-m / 2;
 
 // z-index
-$rings-zi: 1;
-$modal-background-zi: 2; 
-$modal-zi: 3; 
+$ring-zi: 1;
+$ring-dragged-zi: 2;
+$modal-background-zi: 3; 
+$modal-zi: 4;
 
 // Color themes
 $primary: $purple-80;

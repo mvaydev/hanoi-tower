@@ -1,31 +1,6 @@
 .game {
-    width: 1024px;
-
+    width: 90vw;
+    max-width: 900px;
     display: flex;
-
     border-bottom: $step-l solid $grey-80;
-}
-
-.game__rings-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-
-    padding-top: $step-l * 2;
-    width: 100%;
-
-    position: relative;
-
-    &::before {
-        content: '';
-
-        width: $step-l;
-        height: 100%;
-
-        display: block;
-        background: $grey-80;
-
-        position: absolute;
-    }
 }
