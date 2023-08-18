@@ -13,3 +13,21 @@
 @import './layout/_modal';
 
 @import './_typography';   
+
+@media (max-width: 650px) {
+    .ring {
+        @include setWidths(30%, 7.5)
+    }
+}
+
+@media (max-width: 500px) {
+    .game {
+        width: 100vw;
+    }
+
+    .ring {
+        height: $step-m * 3;
+
+        @include setWidths(40%, 7.5)
+    }
+}

@@ -36,38 +36,67 @@
   height: 48px;
   touch-action: none;
   z-index: 1;
+  border-radius: 10px;
 }
 .ring_size_1 {
-  width: 30%;
+  width: 27%;
   background: #F7FFF7;
 }
 .ring_size_2 {
-  width: 40%;
+  width: 34%;
   background: #FFC914;
 }
 .ring_size_3 {
-  width: 50%;
+  width: 41%;
   background: #D27E3A;
 }
 .ring_size_4 {
-  width: 60%;
+  width: 48%;
   background: #FE6D73;
 }
 .ring_size_5 {
-  width: 70%;
+  width: 55%;
   background: #1A936F;
 }
 .ring_size_6 {
-  width: 80%;
+  width: 62%;
   background: #3F88C5;
 }
 .ring_size_7 {
-  width: 90%;
+  width: 69%;
   background: #573280;
 }
 .ring_state_dragged {
   position: absolute;
   z-index: 2;
+}
+.ring_state_normal_size_1 {
+  width: 27.5%;
+  background: #F7FFF7;
+}
+.ring_state_normal_size_2 {
+  width: 35%;
+  background: #FFC914;
+}
+.ring_state_normal_size_3 {
+  width: 42.5%;
+  background: #D27E3A;
+}
+.ring_state_normal_size_4 {
+  width: 50%;
+  background: #FE6D73;
+}
+.ring_state_normal_size_5 {
+  width: 57.5%;
+  background: #1A936F;
+}
+.ring_state_normal_size_6 {
+  width: 65%;
+  background: #3F88C5;
+}
+.ring_state_normal_size_7 {
+  width: 72.5%;
+  background: #573280;
 }
 
 .tower {
@@ -215,6 +244,73 @@
 }
 .paragraph_weight_sb {
   font-weight: 600;
+}
+
+@media (max-width: 650px) {
+  .ring_size_1 {
+    width: 37.5%;
+    background: #F7FFF7;
+  }
+  .ring_size_2 {
+    width: 45%;
+    background: #FFC914;
+  }
+  .ring_size_3 {
+    width: 52.5%;
+    background: #D27E3A;
+  }
+  .ring_size_4 {
+    width: 60%;
+    background: #FE6D73;
+  }
+  .ring_size_5 {
+    width: 67.5%;
+    background: #1A936F;
+  }
+  .ring_size_6 {
+    width: 75%;
+    background: #3F88C5;
+  }
+  .ring_size_7 {
+    width: 82.5%;
+    background: #573280;
+  }
+}
+@media (max-width: 500px) {
+  .game {
+    width: 100vw;
+  }
+  .ring {
+    height: 36px;
+  }
+  .ring_size_1 {
+    width: 47.5%;
+    background: #F7FFF7;
+  }
+  .ring_size_2 {
+    width: 55%;
+    background: #FFC914;
+  }
+  .ring_size_3 {
+    width: 62.5%;
+    background: #D27E3A;
+  }
+  .ring_size_4 {
+    width: 70%;
+    background: #FE6D73;
+  }
+  .ring_size_5 {
+    width: 77.5%;
+    background: #1A936F;
+  }
+  .ring_size_6 {
+    width: 85%;
+    background: #3F88C5;
+  }
+  .ring_size_7 {
+    width: 92.5%;
+    background: #573280;
+  }
 }
 
 /*# sourceMappingURL=main.css.map */

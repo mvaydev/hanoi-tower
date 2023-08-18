@@ -10,22 +10,30 @@ $ring-colors: (
     #573280,
 );
 
-.ring {
-    height: $step-l * 2;
-    touch-action: none;
-
-    $percentage: 20%;
-    z-index: $ring-zi;
-
+@mixin setWidths($percentage, $widthDegree) {
     @for $i from 1 through 7 {
         &_size_#{$i} {
-            width: $percentage + $i * 10;
+            width: $percentage + $i * $widthDegree;
             background: list.nth($ring-colors, $i);
         }
     }
+}
+
+.ring {
+    @include setWidths(20%, 7);
+
+    height: $step-l * 2;
+    touch-action: none;
+    z-index: $ring-zi;
+
+    border-radius: 10px;
 
     &_state_dragged {
         position: absolute;
         z-index: $ring-dragged-zi;
+    }
+
+    &_state_normal {
+        @include setWidths(20%, 7.5);
     }
 }

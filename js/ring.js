@@ -86,7 +86,7 @@ class Ring extends HTMLElement {
 
     setNormalView() {
         this.classList.remove('ring_state_dragged')
-        this.style.width = 20 + this.size * 10 + '%' // check _ring.scss
+        this.classList.remove('ring_state_normal')
     }
 }
 
