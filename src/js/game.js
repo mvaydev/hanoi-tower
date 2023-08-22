@@ -1,4 +1,6 @@
-class Game {
+require('./tower.js')
+
+export default class Game {
     constructor(numberOfTowers, firstTowerSize) {
         this.towers = []
 
@@ -22,5 +24,3 @@ class Game {
         }
     }   
 }
-
-let game = new Game(3, 7)

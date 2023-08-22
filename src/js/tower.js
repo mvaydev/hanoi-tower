@@ -1,3 +1,5 @@
+require('./ring.js')
+
 class Tower extends HTMLElement {
     connectedCallback() {
         this.classList.add('tower')

@@ -86,7 +86,8 @@ class Ring extends HTMLElement {
 
     setNormalView() {
         this.classList.remove('ring_state_dragged')
-        this.classList.remove('ring_state_normal')
+        this.style.width = ''
+        this.classList.add('ring_state_normal')
     }
 }
 
