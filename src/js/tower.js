@@ -1,51 +1,25 @@
-require('./ring.js')
-
-class Tower extends HTMLElement {
+export default class Tower extends HTMLElement {
     connectedCallback() {
         this.classList.add('tower')
     }
 
-    fill(size) {
-        for(let i = 1; i <= size; i++) {
-            let ring = document.createElement('ring-component')
-
-            ring.size = i
-            ring.order = i
-            ring.sourceTower = this
-
-            this.append(ring)
-        }
-    }
-
-    isRingCanDrop(ring) {
-        return  !this.firstChild ?
-                true :
-                this.firstChild.size > ring.size
-    }
-
     pushRing(ring) {
         this.prepend(ring)
-
-        let tower = this.querySelectorAll('.ring')
-
-        for(let i = 1; i <= tower.length; i++) {
-            let ring = tower[i - 1]
-
-            ring.setNormalView()
-            ring.order = i
-        }
-
-        ring.sourceTower.ringShifted()
-        ring.sourceTower = this
+        ring.setNormalView()
+        this.reOrderRings()
     }
 
-    ringShifted() {
-        let tower = this.querySelectorAll('.ring')
+    reOrderRings() {
+        let rings = this.querySelectorAll('.ring')
 
-        for(let i = 1; i <= tower.length; i++) {
-            tower[i - 1].order = i
+        for(let i = 0; i < rings.length; i++) {
+            rings[i].order = i
         }
+    }
+
+    isRingCanDrop(ringSize) {
+        return  !this.firstChild ?
+                true :
+                ringSize < this.firstChild.size
     }
 }
-
-customElements.define('tower-component', Tower)

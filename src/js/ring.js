@@ -1,51 +1,28 @@
-class Ring extends HTMLElement {
+export default class Ring extends HTMLElement {
     connectedCallback() {
-        this.classList.add('ring', 'ring_size_' + this.size)
-
-        this.addEventListener('pointerdown', this.handleCatch)
+        this.classList.add('ring', `ring_size_` + this.size)
     }
 
     get rect() {
         return this.getBoundingClientRect()
     }
 
-    handleCatch(event) {
-        event.preventDefault()
-
-        if(this.order != 1) return
-
-        let shiftX = event.clientX - this.rect.left
-        let shiftY = event.clientY - this.rect.top
-
-        this.setDragView()
-        this.move(event.pageX - shiftX, event.pageY - shiftY)
-
-        document.addEventListener('pointermove', e => this.handleDrag(shiftX, shiftY, e))
-        document.body.addEventListener('pointerleave', this.moveBack.bind(this))
-        this.addEventListener('pointerup', this.handleDrop)
+    move(x, y) {
+        this.style.left = x + 'px'
+        this.style.top = y + 'px'
     }
 
-    handleDrag(shiftX, shiftY, {pageX, pageY}) {
-        let {newX, newY} = this.getNewCoordinates(pageX - shiftX, pageY - shiftY)
+    setDragView() {
+        this.classList.add('ring_state_dragged')
+        this.style.width = this.rect.width + 'px'
 
-        this.move(newX, newY)
+        document.body.append(this)
     }
-    
-    handleDrop(event) {
-        this.hidden = true
-        let towerToDrop = document.elementFromPoint(event.clientX, event.clientY)
-                                  .closest('.tower')
-        this.hidden = false
 
-        if(towerToDrop === this.sourceTower || !towerToDrop) {
-            this.moveBack()
-        } 
-
-        else if(towerToDrop.isRingCanDrop(this)) {
-            towerToDrop.pushRing(this)
-        }
-
-        this.moveBack()
+    setNormalView() {
+        this.classList.remove('ring_state_dragged')
+        this.style.width = ''
+        this.classList.add('ring_state_normal')
     }
 
     getNewCoordinates(x, y) {
@@ -67,28 +44,4 @@ class Ring extends HTMLElement {
 
         return {newX, newY}
     }
-
-    moveBack() {
-        this.sourceTower.pushRing(this)
-    }
-
-    move(x, y) {
-        this.style.top = y + 'px'
-        this.style.left = x + 'px'
-    }
-
-    setDragView() {
-        this.classList.add('ring_state_dragged')
-        this.style.width = this.rect.width + 'px'
-
-        document.body.append(this)
-    }
-
-    setNormalView() {
-        this.classList.remove('ring_state_dragged')
-        this.style.width = ''
-        this.classList.add('ring_state_normal')
-    }
 }
-
-customElements.define('ring-component', Ring)
