@@ -14,6 +14,7 @@ export default class Game {
         this.stopResizing()
 
         document.addEventListener('pointerdown', this.onDragStart.bind(this))
+        document.ondragstart = () => false
     }
 
     createRings(numberOfRings) {
