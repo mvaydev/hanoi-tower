@@ -12,5 +12,6 @@
 
     &_hidden {
         display: none;
+        z-index: $hidden-zi;
     }
 }

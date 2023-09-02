@@ -4,17 +4,32 @@ import Tower from './tower.js'
 customElements.define('ring-component', Ring)
 customElements.define('tower-component', Tower)
 
-export default class Game {
-    constructor(numberOfRings = 7, numberOfTowers = 3) {
+export default class Game extends HTMLElement {
+    connectedCallback() {
+        this.classList.add('game')
+    }
+
+    new(numberOfRings = 7) {
         const rings = this.createRings(numberOfRings)
-        const towers = this.createTowers(numberOfTowers)
+        const towers = this.createTowers()
               towers[0].append(...rings)
 
-        document.querySelector('.game').append(...towers)
-        this.stopResizing()
+        this.textContent = ''
+        this.append(...towers)
 
-        document.addEventListener('pointerdown', this.onDragStart.bind(this))
+        this.resize()
+        this.stopResizing()
+    }
+
+    start() { 
+        this.boundedDragStart = this.onDragStart.bind(this)
+
         document.ondragstart = () => false
+        document.addEventListener('pointerdown', this.boundedDragStart)
+    }
+
+    pause() { 
+        document.removeEventListener('pointerdown', this.boundedDragStart)
     }
 
     createRings(numberOfRings) {
@@ -31,7 +46,8 @@ export default class Game {
         return rings
     }
 
-    createTowers(numberOfTowers) {
+    createTowers() {
+        const numberOfTowers = 3
         let towers = []
 
         for(let i = 0; i < numberOfTowers; i++){
@@ -44,25 +60,38 @@ export default class Game {
     }
 
     stopResizing() {
-        let game = document.querySelector('.game')
+        this.style.height = this.getBoundingClientRect().height + 'px'
+    }
 
-        game.style.height = game.getBoundingClientRect().height + 'px'
+    resize() {
+        this.style.height = ''
+
+        this.classList.remove('game')
+        this.classList.add('game')
     }
 
     addEventListeners() {
-        this.boundedDragEnd = this.onDragEnd.bind(this)
-        this.boundedDrag = this.onDrag.bind(this)
-        this.boundedDragCancel = this.onDragCancel.bind(this)
+        this.dragHandlers = {
+            drag: this.onDrag.bind(this),
+            end: this.onDragEnd.bind(this),
+            cancel: this.onDragCancel.bind(this),
+        }
 
-        document.addEventListener('pointerup', this.boundedDragEnd)
-        document.addEventListener('pointermove', this.boundedDrag)
-        document.body.addEventListener('pointerleave', this.boundedDragCancel)
+        document.addEventListener('pointerup', this.dragHandlers.end)
+        document.addEventListener('pointermove', this.dragHandlers.drag)
+        document.body.addEventListener('pointerleave', this.dragHandlers.cancel)
     }
 
     removeEventListeners() {
-        document.removeEventListener('pointerup', this.boundedDragEnd)
-        document.removeEventListener('pointermove', this.boundedDrag)
-        document.body.removeEventListener('pointerleave', this.boundedDragCancel)
+        document.removeEventListener('pointerup', this.dragHandlers.end)
+        document.removeEventListener('pointermove', this.dragHandlers.drag)
+        document.body.removeEventListener('pointerleave', this.dragHandlers.cancel)
+    }
+
+    isDraggebleRing(ring) {
+        return  ring && 
+                !ring.order && 
+                ring.classList.contains('ring')
     }
 
     onDragStart({target, pageX: x, pageY: y}) {
@@ -109,11 +138,5 @@ export default class Game {
 
     onDragCancel() {
         this.sourceTower.pushRing(this.draggedRing)
-    }
-
-    isDraggebleRing(ring) {
-        return  ring && 
-                !ring.order && 
-                ring.classList.contains('ring')
     }
 }

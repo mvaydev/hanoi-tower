@@ -7,6 +7,7 @@
 @import './components/_tower';
 @import './components/_icon';
 @import './components/_number-input';
+@import './components/_dark-background';
 
 @import './layout/_game';
 @import './layout/_wrapper';
@@ -29,5 +30,16 @@
         height: $step-m * 3;
 
         @include setWidths(40%, 7.5)
+    }
+
+    .modal {
+        width: 100vw;
+        height: 100vh;
+
+        border-radius: 0;
+    }
+
+    .button {
+        width: 100%
     }
 }

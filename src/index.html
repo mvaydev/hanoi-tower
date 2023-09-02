@@ -7,6 +7,46 @@
     <meta name="description" content="Игра головоломка Ханойская башня">
 </head>
 <body class="body">
+    <!-- Modals -->
+
+    <div class="dark-background"></div>
+
+    <div class="modal" id="startGameModal">
+        <div class="modal__title">
+            <h1 class="header header_size_l">Ханойская башня</h1>
+            <h3 class="header header_size_s header_color_purple">Головоломка</h3>
+        </div>
+
+        <button class="button button_type_primary" value="new">Начать</button>
+    </div>
+
+    <div class="modal modal_hidden" id="pauseGameModal">
+        <h1 class="header header_size_l">Пауза</h1>
+
+        <div class="modal__buttons">
+            <button class="button button_type_secondary" value="new">Заново</button>
+            <button class="button button_type_primary" value="start">Продолжить</button>
+        </div>
+    </div>
+
+    <div class="modal modal_hidden" id="finishGameModal">
+        <h1 class="header header_size_l">Победа</h1>
+
+        <div class="modal__row">
+            <p class="paragraph paragraph_weight_sb">Время:</p>
+            <p class="paragraph">00:00</p>
+        </div>
+
+        <div class="modal__row">
+            <p class="paragraph paragraph_weight_sb">Ходов:</p>
+            <p class="paragraph">000</p>
+        </div>
+
+        <button class="button button_type_primary" value="new">Заново</button>
+    </div>
+
+    <!-- Game -->
+
     <div class="wrapper">
         <div class="wrapper__menu">
             <h2 class="header header_size_m">
@@ -16,7 +56,7 @@
             </h2>
     
             <!-- pause -->
-            <button class="button button_type_secondary">
+            <button class="button button_type_secondary" value="pause">
                 <span class="icon"></span>
             </button>
     
@@ -25,8 +65,6 @@
                 <span class="icon"></span>
                 000
             </h2>
-        </div>
-        <div class="game">
         </div>
     </div>
 </body>

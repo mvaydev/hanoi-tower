@@ -1,15 +1,24 @@
 .modal {
     display: flex;
     flex-direction: column;
-    align-items: center;
 
+    align-items: center;
+    justify-content: center;
     gap: $step-l;
+
     padding: $step-l $step-l * 2; 
+    box-sizing: border-box;
 
     border-radius: $step-l;
     background: $grey-80;
 
     z-index: $modal-zi;
+    position: absolute;
+
+    &_hidden {
+        z-index: $hidden-zi;
+        display: none;
+    }
 
     &__title {
         display: flex;
@@ -18,25 +27,17 @@
         row-gap: $step-s;
     }
 
+    &__buttons {
+        display: flex;
+        flex-direction: column;
+        row-gap: $step-s;
+    }
+
     &__row {
         width: 100%;
 
         display: flex;
         justify-content: space-between;
-        align-items: center;
         column-gap: $step-l;
-    }
-
-    &__dark-background {
-        width: 100vw;
-        height: 100vh;
-
-        position: absolute;
-        left: 0;
-        top: 0;
-
-        z-index: $modal-background-zi;
-
-        background: $transparent-black;
     }
 }
