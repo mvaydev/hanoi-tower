@@ -6,7 +6,7 @@
 @import './components/_ring';
 @import './components/_tower';
 @import './components/_icon';
-@import './components/_number-input';
+@import './components/_slider';
 @import './components/_dark-background';
 
 @import './layout/_game';
@@ -37,6 +37,8 @@
         height: 100vh;
 
         border-radius: 0;
+
+        gap: $step-l * 2;
     }
 
     .button {

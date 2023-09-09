@@ -19,6 +19,10 @@ $font-sizes: (
     display: inline-flex;
     align-items: center;
     column-gap: $step-s;
+
+    &_type_number {
+        font-variant-numeric: tabular-nums;
+    }
 }
 
 .paragraph {
@@ -29,5 +33,9 @@ $font-sizes: (
 
     &_weight_sb {
         font-weight: 600;
+    }
+
+    &_type_number {
+        font-variant-numeric: tabular-nums;
     }
 }

@@ -17,6 +17,18 @@
             <h3 class="header header_size_s header_color_purple">Головоломка</h3>
         </div>
 
+        <div class="slider">
+            <div class="slider__label">
+                <p class="paragraph paragraph_weight_sb">Количество колец:</p>
+                <output 
+                    class="paragraph paragraph_weight_sb paragraph_type_number" 
+                    id="sliderOutput">3
+                </output>
+            </div>
+
+            <input type="range" id="sliderInput" class="slider__input" min="3" max="7" value="3">
+        </div>
+
         <button class="button button_type_primary" value="new">Начать</button>
     </div>
 
@@ -24,7 +36,7 @@
         <h1 class="header header_size_l">Пауза</h1>
 
         <div class="modal__buttons">
-            <button class="button button_type_secondary" value="new">Заново</button>
+            <button class="button button_type_secondary" value="again">Заново</button>
             <button class="button button_type_primary" value="start">Продолжить</button>
         </div>
     </div>
@@ -34,25 +46,25 @@
 
         <div class="modal__row">
             <p class="paragraph paragraph_weight_sb">Время:</p>
-            <p class="paragraph">00:00</p>
+            <output class="paragraph" id="timeFinishOutput"></output>
         </div>
 
         <div class="modal__row">
             <p class="paragraph paragraph_weight_sb">Ходов:</p>
-            <p class="paragraph">000</p>
+            <output class="paragraph" id="movesFinishOutput"></output>
         </div>
 
-        <button class="button button_type_primary" value="new">Заново</button>
+        <button class="button button_type_primary" value="again">Заново</button>
     </div>
 
     <!-- Game -->
 
     <div class="wrapper">
         <div class="wrapper__menu">
-            <h2 class="header header_size_m">
+            <h2 class="header header_size_m header_type_number">
                 <!-- hourglass -->
                 <span class="icon"></span>
-                00:00
+                <output id="timeMenuOutput"></output>
             </h2>
     
             <!-- pause -->
@@ -60,10 +72,10 @@
                 <span class="icon"></span>
             </button>
     
-            <h2 class="header header_size_m">
+            <h2 class="header header_size_m  header_type_number">
                 <!-- arrow-right-arrow-left -->
                 <span class="icon"></span>
-                000
+                <output id="movesMenuOutput"></output>
             </h2>
         </div>
     </div>

@@ -1,0 +1,20 @@
+.slider {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 12px;
+
+    &__label {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 48px;
+    }
+
+    &__input {
+        height: $step-s;
+        border-radius: $step-s;
+
+        accent-color: $purple-80;
+    }
+}
