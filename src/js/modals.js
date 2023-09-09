@@ -12,6 +12,12 @@ export default {
         this.darkBg.classList.add('dark-background_hidden')
     },
 
+    hideAll() {
+        for(let modal in this.modals) {
+            this.hide(this.modals[modal])
+        }
+    },
+
     show(modal) {
         modal.classList.remove('modal_hidden')
         this.darkBg.classList.remove('dark-background_hidden')

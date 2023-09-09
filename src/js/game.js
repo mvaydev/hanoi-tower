@@ -5,9 +5,24 @@ customElements.define('ring-component', Ring)
 customElements.define('tower-component', Tower)
 
 export default class Game extends HTMLElement {
+    // Style managment
+
     connectedCallback() {
         this.classList.add('game')
     }
+
+    stopResizing() {
+        this.style.height = this.getBoundingClientRect().height + 'px'
+    }
+
+    resize() {
+        this.style.height = ''
+
+        this.classList.remove('game')
+        this.classList.add('game')
+    }
+
+    // State managment
 
     new(numberOfRings = 7) {
         const rings = this.createRings(numberOfRings)
@@ -28,9 +43,11 @@ export default class Game extends HTMLElement {
         document.addEventListener('pointerdown', this.boundedDragStart)
     }
 
-    pause() { 
+    stop() {
         document.removeEventListener('pointerdown', this.boundedDragStart)
     }
+
+    // Init game units
 
     createRings(numberOfRings) {
         let rings = []
@@ -59,16 +76,7 @@ export default class Game extends HTMLElement {
         return towers
     }
 
-    stopResizing() {
-        this.style.height = this.getBoundingClientRect().height + 'px'
-    }
-
-    resize() {
-        this.style.height = ''
-
-        this.classList.remove('game')
-        this.classList.add('game')
-    }
+    // Manage event listeners
 
     addEventListeners() {
         this.dragHandlers = {
@@ -88,11 +96,7 @@ export default class Game extends HTMLElement {
         document.body.removeEventListener('pointerleave', this.dragHandlers.cancel)
     }
 
-    isDraggebleRing(ring) {
-        return  ring && 
-                !ring.order && 
-                ring.classList.contains('ring')
-    }
+    // Event handlers
 
     onDragStart({target, pageX: x, pageY: y}) {
         if(!this.isDraggebleRing(target)) return
@@ -138,5 +142,13 @@ export default class Game extends HTMLElement {
 
     onDragCancel() {
         this.sourceTower.pushRing(this.draggedRing)
+    }
+
+    // Other
+
+    isDraggebleRing(ring) {
+        return  ring && 
+                !ring.order && 
+                ring.classList.contains('ring')
     }
 }
