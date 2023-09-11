@@ -1,12 +1,11 @@
-import Game from './game.js'
+import Game from './game/game.js'
 import modalManager from './modals.js'
+import Stopwatch from './stopwatch.js'
 
 customElements.define('game-component', Game)
 
 const movesMenuOutput = document.getElementById('movesMenuOutput')
 const movesFinishOutput = document.getElementById('movesFinishOutput')
-const timeMenuOutput = document.getElementById('timeMenuOutput')
-const timeFinishOutput = document.getElementById('timeFinishOutput')
 
 export default class GameManager {
     constructor() {
@@ -41,30 +40,30 @@ export default class GameManager {
         this.numberOfRings = Number(document.querySelector('#sliderInput').value)
         this.game.new(this.numberOfRings)
 
+        this.stopwatch = new Stopwatch()
+
         this.observeGame()
         this.start()
-        this.resetInfo()
-
-        clearInterval(this.timer)
-        this.setTimer()
+        this.resetInfo()  
     }
 
     start() {
         modalManager.hideAll()
 
         this.game.start()
+        this.stopwatch.start(0)
     }
 
     finish() {
         modalManager.show(modalManager.modals.finish)
 
         this.game.stop()
-        
-        clearInterval(this.timer)
+        this.stopwatch.stop()
     }
 
     pause() {
         this.game.stop()
+        this.stopwatch.stop()
 
         modalManager.show(modalManager.modals.pause)
     }
@@ -83,22 +82,6 @@ export default class GameManager {
         this.moves = 0
         movesMenuOutput.value = this.moves
         movesFinishOutput.value = this.moves   
-    }
-
-    setTimer() {
-        const timeStart = new Date()
-        let timeString = '0:0'
-
-        timeMenuOutput.value = timeString
-        timeFinishOutput.value = timeString
-        
-        this.timer = setInterval(() => {
-            const time = new Date(Date.now() - timeStart)
-            timeString = `${time.getMinutes()}:${time.getSeconds()}`
-
-            timeMenuOutput.value = timeString
-            timeFinishOutput.value = timeString
-        }, 1000)
     }
 
     setHandlers() {
