@@ -1,12 +1,12 @@
 @font-face {
-    src: url(../assets/fonts/Montserrat.ttf);
-    font-family: 'Montserrat';
+    src: url(../assets/fonts/Nunito.ttf);
+    font-family: 'Nunito';
 }  
 
 $font-sizes: (
-    'l': 30px, 
+    'l': 32px, 
     'm': 24px, 
-    's': 22px
+    's': 20px
 );
 
 .header {
@@ -29,7 +29,7 @@ $font-sizes: (
     @include default-font();
     @include color-purple-modifier();
 
-    font-size: 16px;
+    font-size: 18px;
 
     &_weight_sb {
         font-weight: 600;
