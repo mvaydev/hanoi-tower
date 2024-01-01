@@ -8,7 +8,7 @@
 
 ## Сборка
 
-Демо: https://invizex.github.io/hanoi-tower
+Демо: https://mvaydev.github.io/hanoi-tower
 
 ### Сборка продакшена
 ```
